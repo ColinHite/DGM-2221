@@ -4,10 +4,9 @@ using System.Collections;
 public class newmove : MonoBehaviour {
 	public float speed     = 5.0f;
 	public float jumpSpeed = 3.0f;
-	public float maxJump   = 2;
-	public int jumpCount   = 0;
-	public bool isGrounded = true;
-	public float jumpForce = 10.00f;
+	public float maxJump   = 3;
+	public float jumpCount   = 1;
+	bool isGrounded = true;
 
 	// Update is called once per frame
 	void Update () 
@@ -19,21 +18,43 @@ public class newmove : MonoBehaviour {
 		//Jump Action
 
 		
-		if (Input.GetKeyDown (KeyCode.Space) && maxJump < 3) {
+		if (Input.GetKeyDown (KeyCode.Space) && maxJump < 3) 
+			GetComponent<Rigidbody> ().velocity += Vector3.up * jumpSpeed;
+
+		if (Input.GetKeyDown (KeyCode.Space) && jumpCount < maxJump)
+		{
 			GetComponent<Rigidbody> ().velocity += Vector3.up * jumpSpeed;
 			jumpCount++;
 		}
 		// This is for the double jump
-		if (jumpCount > maxJump || isGrounded == false) {
+
+		if (jumpCount > maxJump || isGrounded == false) 
+		
+		{
 			jumpSpeed = 0.0f;
 		}
-		if (jumpCount > maxJump && isGrounded == true) {
+
+		if (jumpCount > maxJump && isGrounded == true) 
+		
+		
+		{
+
 			jumpSpeed = 0.0f;
 			jumpCount = 1;
+		
 		}
 	}
-	void OnCollisionEnter (Collision greg)
+	void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.tag == "ground") 
 		{
-			isGrounded = true;
+			jumpCount = 1;
+			jumpSpeed = 7;
 		}
+	}
+	void OnTriggerEnter(Collider other)
+	{
+			if (gameObject.tag == "Player") {
+		}
+	}
 }
