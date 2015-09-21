@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\rotationScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/deathRestart.cs">
     <Files>
-      <File FileName="Assets\Scripts\rotationScript.cs" Line="15" Column="44" />
-      <File FileName="Assets\Scripts\newmove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\jumpObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\moveHero.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/rotationScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/newmove.cs" Line="38" Column="18" />
+      <File FileName="Assets/Scripts/deathRestart.cs" Line="9" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

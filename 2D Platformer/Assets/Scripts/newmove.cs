@@ -17,10 +17,6 @@ public class newmove : MonoBehaviour {
 		}
 		//Jump Action
 
-		
-		if (Input.GetKeyDown (KeyCode.Space) && maxJump < 3) 
-			GetComponent<Rigidbody> ().velocity += Vector3.up * jumpSpeed;
-
 		if (Input.GetKeyDown (KeyCode.Space) && jumpCount < maxJump)
 		{
 			GetComponent<Rigidbody> ().velocity += Vector3.up * jumpSpeed;
@@ -38,10 +34,8 @@ public class newmove : MonoBehaviour {
 		
 		
 		{
-
 			jumpSpeed = 0.0f;
 			jumpCount = 1;
-		
 		}
 	}
 	void OnCollisionEnter (Collision col)
@@ -50,11 +44,6 @@ public class newmove : MonoBehaviour {
 		{
 			jumpCount = 1;
 			jumpSpeed = 7;
-		}
-	}
-	void OnTriggerEnter(Collider other)
-	{
-			if (gameObject.tag == "Player") {
 		}
 	}
 }
