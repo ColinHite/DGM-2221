@@ -2,23 +2,23 @@
 using System.Collections;
 
 public class deathRestart : MonoBehaviour {
-	private Vector3 initialPos;
-	private Quaternion initialRotation;
-	bool 
-
+	public GameObject respawnPrefab;
+	public GameObject[] respawns;
 	void Start () 
 	{
-		initialPos = transform.position;
-		initialRotation = transform.rotation;
-	}
 
-	void Update () 
-	{
-		if(gameObject.transform.position.x
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		Destroy (other.gameObject);
+		if(respawns == null)
+			respawns = GameObject.FindGameObjectsWithTag("Player");
+		
+		foreach (GameObject respawn in respawns)
+		{
+			Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation);
+		}
+		GetComponent<MeshRenderer> ().enabled = false;
 	}
 }
+
