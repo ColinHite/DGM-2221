@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\moveHero.cs" />
      <Compile Include="Assets\Scripts\newmove.cs" />
      <Compile Include="Assets\Scripts\rotationScript.cs" />
+     <Compile Include="Assets\Scripts\textFade.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
