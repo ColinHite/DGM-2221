@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\RespawnGuy.cs" />
-     <Compile Include="Assets\Scripts\deathRestart.cs" />
      <Compile Include="Assets\Scripts\jumpObject.cs" />
      <Compile Include="Assets\Scripts\moveHero.cs" />
      <Compile Include="Assets\Scripts\newmove.cs" />

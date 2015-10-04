@@ -17,6 +17,7 @@ public class RespawnGuy : MonoBehaviour {
 		if (other.transform.tag == "killBox") 
 		{
 			transform.position = spawn.transform.position;
+			Debug.Log ("Player respawned");
 		}
 	}
 }
