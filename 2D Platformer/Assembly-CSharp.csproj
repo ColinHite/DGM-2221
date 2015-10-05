@@ -49,9 +49,11 @@
      <Compile Include="Assets\Scripts\CakeSpin.cs" />
      <Compile Include="Assets\Scripts\Character\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Character\RespawnGuy.cs" />
+     <Compile Include="Assets\Scripts\Character\SmoothCamera.cs" />
      <Compile Include="Assets\Scripts\Character\newmove.cs" />
      <Compile Include="Assets\Scripts\Character\rotationScript.cs" />
      <Compile Include="Assets\Scripts\CheckPoint.cs" />
+     <Compile Include="Assets\Scripts\DashCharacter.cs" />
      <Compile Include="Assets\Scripts\Unused Scripts\jumpObject.cs" />
      <Compile Include="Assets\Scripts\Unused Scripts\moveHero.cs" />
      <Compile Include="Assets\Scripts\textFade.cs" />

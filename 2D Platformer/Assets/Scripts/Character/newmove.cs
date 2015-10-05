@@ -8,13 +8,19 @@ public class newmove : MonoBehaviour {
 	public float jumpCount   = 1;
 	bool isGrounded = true;
 
-	// Update is called once per frame
-	void Update () 
+	void FixedUpdate ()
 	{
-		var move = new Vector3 (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"), 0);
+		var move = new Vector3 (Input.GetAxis ("Horizontal"), 0, 0);
 		{
 			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
 		}
+	}
+	void Update () 
+	{
+		/*var move = new Vector3 (Input.GetAxis ("Horizontal"), 0, 0);
+		{
+			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
+		}*/
 		//Jump Action
 
 		if (Input.GetKeyDown (KeyCode.Space) && jumpCount < maxJump)
