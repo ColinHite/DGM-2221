@@ -18,6 +18,14 @@ public class rotationScript : MonoBehaviour {
 		{
 			transform.forward = new Vector3(0f,0f,1f);	
 		}
+		if(Input.GetKeyDown (KeyCode.LeftArrow))
+		{
+			transform.forward = new Vector3(0f,0f,-1f);	
+		}	
+		if(Input.GetKeyDown (KeyCode.RightArrow))
+		{
+			transform.forward = new Vector3(0f,0f,1f);	
+		}
 	}
 
 }
