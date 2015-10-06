@@ -27,6 +27,7 @@ public class newmove : MonoBehaviour {
 		{
 			GetComponent<Rigidbody> ().velocity += Vector3.up * jumpSpeed;
 			jumpCount++;
+			jumpSpeed = 3.0f;
 		}
 		// This is for the double jump
 
