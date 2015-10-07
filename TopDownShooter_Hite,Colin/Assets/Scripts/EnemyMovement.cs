@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyMovement : MonoBehaviour {
+
+	public float speed = 5.0f;
+	public bool inRange;
+	public GameObject hero;
+
+
+	void OnTriggerEnter (Collider col)
+	{
+
+		if (col.gameObject.tag == "Player") 
+		{
+
+			inRange = true;
+			if (inRange == true)
+			{
+				float step = speed * Time.deltaTime;
+				transform.position = Vector3.MoveTowards(transform.position, hero.transform.position, step);
+			}
+		}
+
+	}
+
+	void OnTriggerExit (Collider col)
+	{
+		
+		if (col.gameObject.tag != "Player") 
+		{
+			
+			inRange = false;
+
+			}
+		}
+}

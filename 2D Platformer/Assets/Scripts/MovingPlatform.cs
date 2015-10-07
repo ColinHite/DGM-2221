@@ -6,9 +6,8 @@ public class MovingPlatform : MonoBehaviour {
 	public Transform startTransform;
 	public Transform endTransform;
 	public Transform destination;
-	public Transform direction;
 	public float platformSpeed;
-
+	public Vector3 direction;
 	// Use this for initialization
 	void Start () 
 	{
