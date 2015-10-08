@@ -4,34 +4,32 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour {
 
 	public float speed = 5.0f;
-	public bool inRange;
+	public bool inRange = false;
 	public GameObject hero;
 
-
-	void OnTriggerEnter (Collider col)
+	void Update()
 	{
-
-		if (col.gameObject.tag == "Player") 
+		if (inRange == true)
 		{
-
-			inRange = true;
-			if (inRange == true)
-			{
-				float step = speed * Time.deltaTime;
-				transform.position = Vector3.MoveTowards(transform.position, hero.transform.position, step);
-			}
+			float step = speed * Time.deltaTime;
+			transform.position = Vector3.MoveTowards(transform.position, hero.transform.position, step);
 		}
 
 	}
 
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.tag == "Player") 
+		{
+			inRange = true;
+		}
+	}
+
 	void OnTriggerExit (Collider col)
 	{
-		
-		if (col.gameObject.tag != "Player") 
+		if (col.gameObject.tag == "Player") 
 		{
-			
 			inRange = false;
-
-			}
 		}
+	}
 }
