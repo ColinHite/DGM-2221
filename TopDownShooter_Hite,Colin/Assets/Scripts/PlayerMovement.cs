@@ -14,20 +14,6 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
 		}
-	}
-	void Update()
-	{
-		if (Input.GetKeyDown (KeyCode.A)) {
-			transform.forward = new Vector3 (0f, 0f, 0f);	
-		}
-		if (Input.GetKeyDown (KeyCode.D)) {
-			transform.forward = new Vector3 (0f, 0f, 0f);	
-		}
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			transform.forward = new Vector3 (0f, 0f, 0f);	
-		}	
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
-			transform.forward = new Vector3 (0f, 0f, 0f);	
-		}
+		transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 	}
 }
