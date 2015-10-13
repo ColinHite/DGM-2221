@@ -11,19 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float fireRate;
 
 	private float nextFire;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	//This is to shoot the projectiles
-	void Update()
-	{
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
-		{
-			nextFire = Time.time * fireRate;
-			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-		}
-	}
+
 
 	//This moves the character left right up and down while moving its forward facing position
 	void FixedUpdate () {
@@ -31,6 +19,11 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
 		}
-		transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+			transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0,Input.GetAxis ("Vertical"));
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
+		{
+			nextFire = Time.time * fireRate;
+			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+		}
 	}
 }
