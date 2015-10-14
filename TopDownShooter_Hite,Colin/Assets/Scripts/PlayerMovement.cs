@@ -5,12 +5,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 5.0f;
 
-	//This is for shooting projectiles
+
 	public GameObject shot;
 	public Transform shotSpawn;
-	public float fireRate;
+	public float duration = 0.5f;
 
-	private float nextFire;
+	private float elapsed;
+	//private float nextFire;
 
 
 	//This moves the character left right up and down while moving its forward facing position
@@ -19,11 +20,16 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
 		}
-			transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0,Input.GetAxis ("Vertical"));
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
+			
+		elapsed += Time.deltaTime;
+
+		transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0,Input.GetAxis ("Vertical"));
+
+
+		if (Input.GetButton ("Fire1") && elapsed >= duration) 
 		{
-			nextFire = Time.time * fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			elapsed = 0;
 		}
 	}
 }
