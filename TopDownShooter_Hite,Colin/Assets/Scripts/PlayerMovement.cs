@@ -5,11 +5,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 5.0f;
 
-
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float duration = 0.5f;
-
 	private float elapsed;
 	//private float nextFire;
 
@@ -22,9 +20,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
 			
 		elapsed += Time.deltaTime;
-
-		transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0,Input.GetAxis ("Vertical"));
-
+		if (Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.S) ||Input.GetKey(KeyCode.D))
+			transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 
 		if (Input.GetButton ("Fire1") && elapsed >= duration) 
 		{
