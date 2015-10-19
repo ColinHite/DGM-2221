@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 5.0f;
 
 	public GameObject PlayerRes;
+	public GameObject Lvl;
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float duration = 0.5f;
@@ -38,6 +39,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (col.transform.tag == "Bolt")
 		{
 			transform.position = PlayerRes.transform.position;
+		}
+		else if (col.transform.tag == "Lvl")
+		{
+			transform.position = Lvl.transform.position;
 		}
 	}
 }
