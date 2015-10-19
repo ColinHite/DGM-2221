@@ -7,7 +7,9 @@ public class EnemyMovement : MonoBehaviour {
 	public bool inRange = false;
 	public GameObject hero;
 	public Transform LockOn;
-	
+
+	public GameObject EnemyRes;
+
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float duration = 0.5f;
@@ -33,6 +35,16 @@ public class EnemyMovement : MonoBehaviour {
 		elapsed += Time.deltaTime;
 	}
 
+	void OnCollisionEnter (Collision col)
+	{
+		if (col.transform.tag == "Bolt")
+		{
+			transform.position = EnemyRes.transform.position;
+			Debug.Log ("Is hitting red box");
+		}
+
+	}
+
 	void OnTriggerEnter (Collider col)
 	{
 		if (col.gameObject.tag == "Player") 
@@ -40,6 +52,7 @@ public class EnemyMovement : MonoBehaviour {
 
 			inRange = true;
 		}
+
 	}
 
 	void OnTriggerExit (Collider col)
