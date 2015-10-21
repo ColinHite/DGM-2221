@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	//This moves the character left right up and down while moving its forward facing position
 	void FixedUpdate () {
+
+		//Movement
 		var move = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 		{
 			GetComponent<Rigidbody> ().position += move * speed * Time.deltaTime;
@@ -23,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 			
 		elapsed += Time.deltaTime;
 
-		//Movement
+		//Rotation forward
 		if (Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.S) ||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow))
 			transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 
@@ -36,13 +38,15 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnCollisionEnter (Collision col)
 	{
+
+		//Death Script
 		if (col.transform.tag == "Bolt")
 		{
 			transform.position = PlayerRes.transform.position;
 		}
-		else if (col.transform.tag == "Lvl")
+		/*else if (col.transform.tag == "Lvl")
 		{
 			transform.position = Lvl.transform.position;
-		}
+		}*/
 	}
 }

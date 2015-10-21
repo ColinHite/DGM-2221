@@ -6,10 +6,15 @@ public class BulDes : MonoBehaviour
 
 
 	public float bulletLife = 1.0f;
+
+	//Sets bullet
+
 	void Update()
 	{
 		Destroy (gameObject, bulletLife);
 	}
+
+	//This destroys the bullets
 
 	void OnCollisionEnter (Collision col)
 	{

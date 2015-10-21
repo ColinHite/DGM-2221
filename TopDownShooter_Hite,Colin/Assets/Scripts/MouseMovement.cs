@@ -3,13 +3,28 @@ using System.Collections;
 
 public class MouseMovement : MonoBehaviour {
 	
+
+	//This Script was for the Hero to follow the mouse using a Raycast.
+	//
+	//
+	//
+	//
+	//
+
+
+
+
+
+
 	public Transform Hero;
 
 
-	// Update is called once per frame
+	//Creates Ray toward ground
 	void FixedUpdate () 
 	{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			
+		//Sets movement to mouse pos.
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{

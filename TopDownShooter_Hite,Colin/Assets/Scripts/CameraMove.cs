@@ -9,13 +9,15 @@ public class CameraMove : MonoBehaviour {
 	public GameObject Player;
 	
 	
-	// Use this for initialization
+	// Finds object to follow
+
 	void Start () 
 	{
-		Player = GameObject.FindGameObjectWithTag ("Player");
+		Player = GameObject.FindGameObjectWithTag ("CameraPoint");
 	}
 	
-	// Update is called once per frame
+	// Allows for the movment of the camera
+
 	void FixedUpdate () 
 	{
 		ViewX = gameObject.transform.position.x;

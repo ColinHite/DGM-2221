@@ -6,12 +6,12 @@ public class ProMovement : MonoBehaviour {
 	public float bulletSpeed;
 	public Rigidbody bullet;
 
-	// Use this for initialization
+	// Gets the bullet item
 	void Start () {
 		bullet = GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
+	// Puts force on the bullet
 	void Update () 
 	{
 		bullet.AddForce (transform.forward * bulletSpeed);
