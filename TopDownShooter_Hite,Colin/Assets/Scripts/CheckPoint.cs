@@ -4,6 +4,7 @@ using System.Collections;
 public class CheckPoint : MonoBehaviour {
 
 	public GameObject Lvl;
+	public GameObject player;
 
 
 	//Moves player to next level
@@ -12,7 +13,7 @@ public class CheckPoint : MonoBehaviour {
 	{
 		if (other.transform.tag == "Player")
 		{
-			transform.position = Lvl.transform.position;
+			player.transform.position = Lvl.transform.position;
 		}
 	}
 }
