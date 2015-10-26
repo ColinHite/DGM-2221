@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 5.0f;
 
 	public GameObject PlayerRes;
-	public GameObject Lvl;
+	//public GameObject Lvl;
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float duration = 0.5f;

@@ -4,16 +4,23 @@ using System.Collections;
 public class CheckPoint : MonoBehaviour {
 
 	public GameObject Lvl;
-	public GameObject player;
+	//public GameObject player;
+	public PlayerMovement playerMovement;
 
 
-	//Moves player to next level
+	void Start()
+	{
+		playerMovement = FindObjectOfType<PlayerMovement>();
+	}
+
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.transform.tag == "Player")
 		{
-			player.transform.position = Lvl.transform.position;
+			playerMovement.PlayerRes = gameObject;
+			Debug.Log ("Player Hit new level");
+			//player.transform.position = Lvl.transform.position;
 		}
 	}
 }
