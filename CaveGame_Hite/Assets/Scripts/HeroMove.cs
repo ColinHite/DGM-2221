@@ -51,7 +51,7 @@ public class HeroMove : MonoBehaviour {
         }
 
         //Player Walk Animation
-        anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        //anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 
         //Player Flip
         if (GetComponent<Rigidbody2D>().velocity.x > 0)
@@ -72,6 +72,6 @@ public class HeroMove : MonoBehaviour {
         }
 
         //Player Jump Animation
-        anim.SetBool("Grounded", grounded);
+        //anim.SetBool("Grounded", grounded);
     }
 }
