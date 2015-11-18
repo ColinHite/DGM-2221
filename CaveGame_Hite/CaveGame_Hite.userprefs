@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HeroMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NewHealth.cs">
     <Files>
-      <File FileName="Assets/Scripts/HeroMove.cs" Line="54" Column="11" />
+      <File FileName="Assets/Scripts/LoadOnClick.cs" Line="4" Column="8" />
+      <File FileName="Assets/Scripts/HeroMove.cs" Line="54" Column="10" />
+      <File FileName="Assets/Scripts/NewHealth.cs" Line="26" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
