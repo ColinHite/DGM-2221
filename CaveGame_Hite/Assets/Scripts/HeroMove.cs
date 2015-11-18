@@ -43,6 +43,18 @@ public class HeroMove : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             Debug.Log("I moved left");
         }
+        //Move Right
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            Debug.Log("I moved right");
+        }
+        //Move Left
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            Debug.Log("I moved left");
+        }
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
