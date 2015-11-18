@@ -8,20 +8,13 @@ public class NewHealth : MonoBehaviour {
     public Respawn respawn;
     public GameObject healthBar;
 
+    public GameObject killScreen;
+
 	void Start ()
     {
         respawn = FindObjectOfType<Respawn> ();
         currentHealth = maxHealth;
         InvokeRepeating("decreseHealth", 1f, 1f);
-    }
-	
-	
-	void Update ()
-    {
-	if (currentHealth == 0)
-        {
-            respawn.RespawnPlayer();
-        }
 	}
 
    
@@ -31,6 +24,12 @@ public class NewHealth : MonoBehaviour {
         {
             currentHealth -= 25;
             Debug.Log("Got Hit took damage");
+        }
+
+        if (currentHealth == 0)
+        {
+            killScreen.SetActive(true);
+            respawn.RespawnPlayer();
         }
     }
 

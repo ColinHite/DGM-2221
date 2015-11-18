@@ -23,8 +23,8 @@ public class Respawn : MonoBehaviour {
         player.GetComponent<Renderer>().enabled = false;
         Debug.Log("Player Respawned");
         yield return new WaitForSeconds(respawnDelay);
-        player.transform.position = currentCheckPoint.transform.position;
+        /*player.transform.position = currentCheckPoint.transform.position;
         player.enabled = true;
-        player.GetComponent<Renderer>().enabled = true;
+        player.GetComponent<Renderer>().enabled = true;*/
     }
 }
