@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HeroMove.cs" />
+    <Compile Include="Assets\Scripts\LoadOnClick.cs" />
     <Compile Include="Assets\Scripts\NewHealth.cs" />
     <Compile Include="Assets\Scripts\Respawn.cs" />
     <Compile Include="Assets\Scripts\SpikeMoveDes.cs" />
