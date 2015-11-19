@@ -68,11 +68,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DodgePoints.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HeroMove.cs" />
     <Compile Include="Assets\Scripts\LoadOnClick.cs" />
+    <Compile Include="Assets\Scripts\MoveWindow.cs" />
     <Compile Include="Assets\Scripts\NewHealth.cs" />
     <Compile Include="Assets\Scripts\Respawn.cs" />
+    <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SpikeMoveDes.cs" />
     <Compile Include="Assets\Scripts\SpikeSpawn.cs" />
     <Compile Include="Assets\Scripts\TileParallax.cs" />

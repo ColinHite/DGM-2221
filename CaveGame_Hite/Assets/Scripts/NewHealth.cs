@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class NewHealth : MonoBehaviour {
-
+    // Health and respawn
     public float maxHealth = 100;
     public float currentHealth = 0;
     public Respawn respawn;
     public GameObject healthBar;
-
+    // Death screen
     public GameObject killScreen;
+    // point multiplier
+    public int hitLog;
 
 	void Start ()
     {
@@ -17,12 +19,17 @@ public class NewHealth : MonoBehaviour {
         InvokeRepeating("decreseHealth", 1f, 1f);
 	}
 
-   
+   //Makes the player lose health and upon 0 health lose the game
     void OnCollisionEnter2D (Collision2D col)
     {
         if(col.gameObject.tag == ("spike"))
         {
             currentHealth -= 25;
+
+            //Handles point multiplier loss
+            DodgePoints.Multiplier(hitLog = 1);
+            Debug.Log("Lost Multiplier");
+
             Debug.Log("Got Hit took damage");
         }
 
@@ -32,7 +39,7 @@ public class NewHealth : MonoBehaviour {
             respawn.RespawnPlayer();
         }
     }
-
+    // modifies the health bar position
     void decreseHealth()
     {
         float calc_Health = currentHealth / maxHealth;

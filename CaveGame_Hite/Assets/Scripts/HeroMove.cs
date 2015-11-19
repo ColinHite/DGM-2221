@@ -35,31 +35,31 @@ public class HeroMove : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            Debug.Log("I moved right");
+            //Debug.Log("I moved right");
         }
         //Move Left
         if (Input.GetKey(KeyCode.A))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            Debug.Log("I moved left");
+            //Debug.Log("I moved left");
         }
         //Move Right
         if (Input.GetKey(KeyCode.RightArrow))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            Debug.Log("I moved right");
+            //Debug.Log("I moved right");
         }
         //Move Left
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            Debug.Log("I moved left");
+            //Debug.Log("I moved left");
         }
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
-            Debug.Log("I jumped");
+            //Debug.Log("I jumped");
         }
 
         //Player Walk Animation
@@ -80,7 +80,7 @@ public class HeroMove : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
             doubleJumped = true;
-            Debug.Log("I jumped twice");
+            //Debug.Log("I jumped twice");
         }
 
         //Player Jump Animation
