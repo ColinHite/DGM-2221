@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BatMove : MonoBehaviour {
 
+    //public GameObject batObj;
     public float batSpeed;
     public Rigidbody2D bat;
     bool isGoingLeft = true;
@@ -15,9 +16,12 @@ public class BatMove : MonoBehaviour {
     }
 
 
-    /*void Update()
+    void Update()
     {
-        if (isGoingLeft == true)
+
+        transform.eulerAngles = new Vector3(0, 0, 0);
+
+        /*if (isGoingLeft == true)
         {
             bat.AddForce(-transform.right * batSpeed);
             Debug.Log("is moving left");
@@ -58,6 +62,6 @@ public class BatMove : MonoBehaviour {
        if (col.gameObject.tag == "BDWall")
         {
             isGoingUp = true;
-        }
-    }*/
+        }*/
+    }
 }

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BatSpawn : MonoBehaviour {
 
+    public int maxBats = 4;
+    public int minBats = 0;
     public Transform batSpawn;
     public GameObject bat;
     public float duration = 0.5f;
@@ -15,9 +17,10 @@ public class BatSpawn : MonoBehaviour {
 
         int spawnRotationIndex = Random.Range(0, batAngleSpawn.Length);
 
-        if (elapsed >= duration)
+        if (elapsed >= duration && maxBats > minBats)
         {
             Instantiate(bat, batSpawn.position, batSpawn.rotation);
+            minBats += 1;
             elapsed = 0;
             transform.eulerAngles = new Vector3(0, 0, batAngleSpawn[spawnRotationIndex]);
             Debug.Log("Made Bat");
