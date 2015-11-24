@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class NewHealth : MonoBehaviour {
@@ -7,6 +8,13 @@ public class NewHealth : MonoBehaviour {
     public float currentHealth = 0;
     public Respawn respawn;
     public GameObject healthBar;
+
+    //--Damage Flash
+    public float flashSpeed = 5f;
+    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+    public Image damageImage;
+    bool damaged = false;
+
     // Death screen
     public GameObject killScreen;
     // point multiplier
@@ -19,17 +27,31 @@ public class NewHealth : MonoBehaviour {
         InvokeRepeating("decreseHealth", 1f, 1f);
 	}
 
+    void Update()
+    {
+        if (damaged == true)
+        {
+            damageImage.color = flashColour;
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
+        damaged = false;
+        //Debug.Log("Flashed Damage Image");
+    }
+
    //Makes the player lose health and upon 0 health lose the game
     void OnCollisionEnter2D (Collision2D col)
     {
         if(col.gameObject.tag == ("spike"))
         {
+            damaged = true;
             currentHealth -= 25;
 
             //Handles point multiplier loss
             DodgePoints.Multiplier(hitLog = 1);
             Debug.Log("Lost Multiplier");
-
             Debug.Log("Got Hit took damage");
         }
 

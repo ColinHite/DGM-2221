@@ -4,8 +4,9 @@ using System.Collections;
 public class SpikeMoveDes : MonoBehaviour {
 
     public float spikeLife = 1.0f;
-    public float spikeSpeed;
+    public int spikeSpeed;
     public Rigidbody2D spike;
+    //public float speedMul = 1.0f;
 
 	void Start ()
     {
@@ -15,10 +16,13 @@ public class SpikeMoveDes : MonoBehaviour {
 
 	void Update ()
     {
-        spike.AddForce(transform.up * spikeSpeed);
-
+        spike.velocity = new Vector2(-spikeSpeed, spike.velocity.y);
+        //spike.velocity = transform.up * spikeSpeed;
+        /*speedMul += 1;
+        spikeSpeed = speedMul * 0.01f;
+        */
         Destroy(gameObject, spikeLife);
-	}
+    }
 
     void OnCollisionEnter2D (Collision2D col)
     {
