@@ -6,8 +6,21 @@ public class BatMove : MonoBehaviour {
     //public GameObject batObj;
     public float batSpeed;
     public Rigidbody2D bat;
-    bool isGoingLeft = true;
-    bool isGoingUp = true;
+    // Checks for player
+    public Transform playerCheck;
+    public float playerCheckRadius;
+    public LayerMask whatIsPlayer;
+    private bool playerDetect = false;
+    // points value
+    public int pointsToAdd;
+    // Player result
+    //public Rigidbody2D player;
+    //public float jumpHeight;
+
+    public int BatsToSubtract;
+
+    //bool isGoingLeft = true;
+    //bool isGoingUp = true;
 
     void Start()
     {
@@ -15,11 +28,30 @@ public class BatMove : MonoBehaviour {
         bat.AddForce(-transform.right * batSpeed);
     }
 
+    void FixedUpdate()
+    {
+        playerDetect = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);
+    }
 
     void Update()
     {
 
         transform.eulerAngles = new Vector3(0, 0, 0);
+
+        if (playerDetect == true)
+        {
+            //player.velocity = new Vector2(jumpHeight, player.velocity.y);
+            Destroy(gameObject);
+            ScoreManager.AddPoints(pointsToAdd);
+            BatSpawn.AddBats(BatsToSubtract);
+        }
+
+        //Bat Flip
+        if (GetComponent<Rigidbody2D>().velocity.x > 0)
+            transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
+
+        else if (GetComponent<Rigidbody2D>().velocity.x < 0)
+            transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
         /*if (isGoingLeft == true)
         {

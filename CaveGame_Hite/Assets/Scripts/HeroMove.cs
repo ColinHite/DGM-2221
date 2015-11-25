@@ -6,6 +6,8 @@ public class HeroMove : MonoBehaviour {
     public float moveSpeed;
     public float jumpHeight;
 
+    public float moveVelocity;
+
     //Ground Check
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -16,11 +18,11 @@ public class HeroMove : MonoBehaviour {
     private bool doubleJumped;
 
     //Player Animation
-    private Animator anim;
+    //private Animator anim;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
 
@@ -31,30 +33,42 @@ public class HeroMove : MonoBehaviour {
 
     void Update()
     {
+
+        //Stops player from sticking to the wall
+        moveVelocity = 0f;
+
         //Move Right
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //Debug.Log("I moved right");
+            moveVelocity = moveSpeed;
         }
         //Move Left
         if (Input.GetKey(KeyCode.A))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //Debug.Log("I moved left");
+            moveVelocity = -moveSpeed;
         }
         //Move Right
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //Debug.Log("I moved right");
+            moveVelocity = moveSpeed;
         }
         //Move Left
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //Debug.Log("I moved left");
+            moveVelocity = -moveSpeed;
         }
+
+        //Stops Player from sticking to the wall
+        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D> ().velocity.y);
+
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
@@ -86,4 +100,11 @@ public class HeroMove : MonoBehaviour {
         //Player Jump Animation
         //anim.SetBool("Grounded", grounded);
     }
+    /*void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "bat")
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+        }
+    }*/
 }

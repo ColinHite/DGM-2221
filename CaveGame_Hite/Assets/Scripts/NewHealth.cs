@@ -4,6 +4,8 @@ using System.Collections;
 
 public class NewHealth : MonoBehaviour {
     // Health and respawn
+    //private NewHealth health;
+    private SpikeSpawn spikeSpawn;
     public float maxHealth = 100;
     public float currentHealth = 0;
     public Respawn respawn;
@@ -22,6 +24,7 @@ public class NewHealth : MonoBehaviour {
 
 	void Start ()
     {
+        spikeSpawn = FindObjectOfType<SpikeSpawn>();
         respawn = FindObjectOfType<Respawn> ();
         currentHealth = maxHealth;
         InvokeRepeating("decreseHealth", 1f, 1f);
@@ -44,10 +47,10 @@ public class NewHealth : MonoBehaviour {
    //Makes the player lose health and upon 0 health lose the game
     void OnCollisionEnter2D (Collision2D col)
     {
-        if(col.gameObject.tag == ("spike"))
+        if(col.gameObject.tag == ("spike") || col.gameObject.tag == ("bat"))
         {
             damaged = true;
-            currentHealth -= 25;
+            currentHealth -= 10;
 
             //Handles point multiplier loss
             DodgePoints.Multiplier(hitLog = 1);
@@ -57,6 +60,10 @@ public class NewHealth : MonoBehaviour {
 
         if (currentHealth == 0)
         {
+            gameObject.SetActive(false);
+            spikeSpawn.enabled = false;
+            //enabled = false;
+            //health.enabled = false;
             killScreen.SetActive(true);
             respawn.RespawnPlayer();
         }

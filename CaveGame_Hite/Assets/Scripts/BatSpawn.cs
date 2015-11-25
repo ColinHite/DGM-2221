@@ -4,7 +4,7 @@ using System.Collections;
 public class BatSpawn : MonoBehaviour {
 
     public int maxBats = 4;
-    public int minBats = 0;
+    public static int minBats = 0;
     public Transform batSpawn;
     public GameObject bat;
     public float duration = 0.5f;
@@ -13,6 +13,10 @@ public class BatSpawn : MonoBehaviour {
 
     void Update()
     {
+
+        if (minBats < 0)
+            minBats = 0;
+
         elapsed += Time.deltaTime;
 
         int spawnRotationIndex = Random.Range(0, batAngleSpawn.Length);
@@ -25,7 +29,10 @@ public class BatSpawn : MonoBehaviour {
             transform.eulerAngles = new Vector3(0, 0, batAngleSpawn[spawnRotationIndex]);
             Debug.Log("Made Bat");
         }
-       
     }
-        
+
+    public static void AddBats(int BatsToSubtract)
+    {
+        minBats -= BatsToSubtract;
+    }
 }
