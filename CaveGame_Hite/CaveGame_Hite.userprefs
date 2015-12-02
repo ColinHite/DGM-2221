@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NewHealth.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/LoadOnClick.cs" Line="4" Column="8" />
-      <File FileName="Assets/Scripts/HeroMove.cs" Line="54" Column="10" />
-      <File FileName="Assets/Scripts/NewHealth.cs" Line="26" Column="39" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SpikeMoveDes.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LoadOnClick.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HeroMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NewHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SpikeSpawn.cs" Line="26" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
