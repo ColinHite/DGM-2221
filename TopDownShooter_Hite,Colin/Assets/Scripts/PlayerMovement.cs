@@ -5,13 +5,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 5.0f;
 
-	public GameObject PlayerRes;
+	//public GameObject PlayerRes;
 	//public GameObject Lvl;
 	public GameObject shot;
 	public Transform shotSpawn;
 	public float duration = 0.5f;
 	private float elapsed;
 	//private float nextFire;
+	public int pointsToAdd = 25;
 
 
 	//This moves the character left right up and down while moving its forward facing position
@@ -40,13 +41,22 @@ public class PlayerMovement : MonoBehaviour {
 	{
 
 		//Death Script
-		if (col.transform.tag == "Bolt")
-		{
-			transform.position = PlayerRes.transform.position;
-		}
+		//if (col.transform.tag == "Bolt")
+		//{
+		//	transform.position = PlayerRes.transform.position;
+		//}
 		/*else if (col.transform.tag == "Lvl")
 		{
 			transform.position = Lvl.transform.position;
 		}*/
+	}
+
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.tag == "coin") 
+		{
+			ScoreManager.AddPoints(pointsToAdd);
+			Destroy(GameObject.FindWithTag("coin"));
+		}
 	}
 }

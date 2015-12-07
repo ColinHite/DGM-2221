@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CheckPoint : MonoBehaviour {
 
-	public GameObject Lvl;
+	/*public GameObject Lvl;
 	//public GameObject player;
 	public PlayerMovement playerMovement;
 
@@ -22,5 +22,5 @@ public class CheckPoint : MonoBehaviour {
 			Debug.Log ("Player Hit new level");
 			//player.transform.position = Lvl.transform.position;
 		}
-	}
+	}*/
 }
