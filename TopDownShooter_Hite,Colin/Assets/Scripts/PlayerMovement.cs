@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -13,8 +14,16 @@ public class PlayerMovement : MonoBehaviour {
 	private float elapsed;
 	//private float nextFire;
 	public int pointsToAdd = 25;
+	//Ammunition
+	public static int maxAmmo = 5;
+	public static int currentAmmo;
+	
 
-
+	void Start ()
+	{
+		currentAmmo = maxAmmo;
+	}
+	
 	//This moves the character left right up and down while moving its forward facing position
 	void FixedUpdate () {
 
@@ -31,11 +40,14 @@ public class PlayerMovement : MonoBehaviour {
 			transform.forward = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 
 		//Is shooting
-		if (Input.GetButton ("Fire1") && elapsed >= duration) 
+		if (Input.GetButton ("Fire1") && elapsed >= duration && currentAmmo > 0) 
 		{
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 			elapsed = 0;
+			currentAmmo -= 1;
 		}
+		if (currentAmmo > 10)
+			currentAmmo = 10;
 	}
 	void OnCollisionEnter (Collision col)
 	{
@@ -57,6 +69,11 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			ScoreManager.AddPoints(pointsToAdd);
 			Destroy(GameObject.FindWithTag("coin"));
+		}
+		if (col.gameObject.tag == "ammo") 
+		{
+			currentAmmo += 1;
+			Destroy(GameObject.FindWithTag("ammo"));
 		}
 	}
 }
