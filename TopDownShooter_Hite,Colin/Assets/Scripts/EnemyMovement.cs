@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour {
 
 
 	//For the enemy Respawn
-	public GameObject EnemyRes;
+	//public GameObject EnemyRes;
 
 
 	//For the bullet
@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour {
 	//Next bullet timespan
 	private float elapsed;
 
-
+	public int pointsToAdd = 50;
 
 	void Update()
 	{
@@ -55,7 +55,9 @@ public class EnemyMovement : MonoBehaviour {
 	{
 		if (col.transform.tag == "Bolt")
 		{
-			transform.position = EnemyRes.transform.position;
+			//transform.position = EnemyRes.transform.position;
+			ScoreManager.AddPoints (pointsToAdd);
+			Destroy (gameObject);
 			Debug.Log ("Is hitting red box");
 		}
 

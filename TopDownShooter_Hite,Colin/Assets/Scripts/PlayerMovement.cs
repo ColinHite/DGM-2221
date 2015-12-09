@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float duration = 0.5f;
 	private float elapsed;
 	//private float nextFire;
-	public int pointsToAdd = 25;
+	//public int pointsToAdd = 25;
 	//Ammunition
 	public static int maxAmmo = 5;
 	public static int currentAmmo;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
 		}*/
 	}
 
-	void OnTriggerEnter (Collider col)
+	/*void OnTriggerEnter (Collider col)
 	{
 		if (col.gameObject.tag == "coin") 
 		{
@@ -75,5 +75,5 @@ public class PlayerMovement : MonoBehaviour {
 			currentAmmo += 1;
 			Destroy(GameObject.FindWithTag("ammo"));
 		}
-	}
+	}*/
 }
